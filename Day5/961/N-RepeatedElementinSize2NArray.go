@@ -5,19 +5,20 @@ import (
 )
 
 func repeatedNTimes(A []int) int {
-	//sort.Ints(A)
-	//l:=len(A)/2
-	//if A[l-1]==A[l]{
-	//	return A[l]
-	//} else {
-	//	if A[l-1]==A[l-2]{
-	//		return A[l-1]
-	//	} else if A[l]==A[l+1] {
-	//		return A[l]
-	//	}
-	//}
-	//return 0
-	//sol 1 using map
+	// sol 1
+	sort.Ints(A)
+	l:=len(A)/2
+	if A[l-1]==A[l]{
+		return A[l]
+	} else {
+		if A[l-1]==A[l-2]{
+			return A[l-1]
+		} else if A[l]==A[l+1] {
+			return A[l]
+		}
+	}
+	return 0
+	// sol 1 using map
 	m:=make(map[int]int)
 	for i:=0;i<len(A);i++{
 		if m[A[i]]>0{
