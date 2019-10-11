@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func singleNumber(nums []int) int {
 	//sol 1 time->O(n) space -> O(n)
@@ -24,7 +27,7 @@ func singleNumber(nums []int) int {
 	//}
 	//return 0
 
-	//sol 2 time->O(n) space -> O(n)
+	////sol 2 time->O(n) space -> O(n)
 	//m:=make(map[int]bool)
 	//total:=0
 	//twices:=0
@@ -40,6 +43,7 @@ func singleNumber(nums []int) int {
 
 	//sol 3 time->O(n) ,space -> O(1)
 	ans:=0
+
 	for i:=0;i<len(nums);i++{
 		ans^=nums[i]
 	}
@@ -50,6 +54,9 @@ func singleNumber(nums []int) int {
 
 
 func main(){
+	start := time.Now()
 	nums:=[]int{4,1,2,1,2}
 	fmt.Println(singleNumber(nums))
+	elapsed := time.Since(start)
+	fmt.Println(elapsed)
 }
